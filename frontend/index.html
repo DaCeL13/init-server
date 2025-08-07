@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/script.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script></head>
+<body>
+    <div class="login-container">
+        <form id="loginForm" class="login-form">
+            <h2>Daniel Castellanos</h2>
+            <div class="input-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+                <div class="g-recaptcha" data-sitekey="6LeU44orAAAAAAGY_azEZWKsy6QojQTWZWju7ute" data-callback="onCaptchaSuccess"></div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <!-- recaptcha v3 -->
+    <!-- <button class="g-recaptcha"
+        data-sitekey="6Le83oorAAAAABmk_7QTEkmOBn2K7INwSEKtsZvD"
+        data-callback='onSubmit'
+        data-action='submit'>
+    Submit
+    </button> -->
+    <!-- <script>
+        function onClick(e) {
+            e.preventDefault();
+            grecaptcha.enterprise.ready(async () => {
+            const token = await grecaptcha.enterprise.execute('6Le83oorAAAAABmk_7QTEkmOBn2K7INwSEKtsZvD', {action: 'LOGIN'});
+            });
+        }
+    </script> -->
+</body>
+</html>
