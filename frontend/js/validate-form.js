@@ -40,7 +40,7 @@ function validateFields() {
   const recaptchaValid = validateRecaptcha();
   let passwordIsValid = false;
 
-  const valitations = {
+  const validations = {
     longitud: /.{8,}/.test(password),
     mayuscula: /[A-Z]/.test(password),
     minuscula: /[a-z]/.test(password),
@@ -48,7 +48,7 @@ function validateFields() {
     especial: /[!@#$%^&*(),\.?":{}|<>]/.test(password)
   };
 
-  for (const [id, valid] of Object.entries(valitations)) {
+  for (const [id, valid] of Object.entries(validations)) {
     const element = document.getElementById(id);
     element.classList.toggle("valid", valid);
   }
@@ -62,7 +62,7 @@ function validateFields() {
   passwordMatchError.textContent = passwordsMatch ? "" : "Las contraseñas no coinciden";
   
   // Habilitar campo de confirmación solo si la contraseña es válida
-  passwordIsValid = Object.values(valitations).every(v => v === true);
+  passwordIsValid = Object.values(validations).every(v => v === true);
   confirmPasswordInput.disabled = !passwordIsValid;
  
   const allSet = username !== "" && email !== "" && password !== "" && confirmPassword !== "";
