@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, status, Response
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from app.utils.response import APIResponse
@@ -120,9 +120,8 @@ def get_users(db: Session = Depends(get_db)):
     return JSONResponse(
         status_code=status.HTTP_200_OK,
         content=jsonable_encoder(APIResponse(status="success", message="Usuarios encontrados", data=users))
-    ) if users else JSONResponse(
-        status_code=status.HTTP_204_NO_CONTENT,
-        content=jsonable_encoder(APIResponse(status="no content", message="No se encontraron usuarios"))
+    ) if users else Response(
+        status_code=status.HTTP_204_NO_CONTENT
     )
 # Endpoint para obtener un usuario por ID
 @router.get(

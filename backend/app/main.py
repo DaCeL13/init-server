@@ -42,4 +42,3 @@ app.add_middleware(
 @app.get("/", include_in_schema=False)
 def redirect_to_health():
     return RedirectResponse(url="/api/v1/health/", status_code=301)
-
