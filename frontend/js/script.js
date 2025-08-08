@@ -60,15 +60,17 @@
 // }   
 document.getElementById('loginForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Previene el envío por defecto del formulario
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    const username = document.getElementById('login-username').value;
+    const email = document.getElementById('login-email').value; // Agregado para capturar el email
+    const password = document.getElementById('login-password').value;
 
     const payload = {
         username: username,
+        email: email,
         password: password
     };
     // Aquí puedes agregar la lógica para manejar el envío del formulario
-    fetch('http://localhost:8000/api/v1/users/register', {
+    fetch('http://localhost:80/api/v1/users/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
