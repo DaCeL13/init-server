@@ -32,16 +32,7 @@ responses = {
       }
     },
     status.HTTP_204_NO_CONTENT: {
-      "description": "No se encontraron usuarios",
-      "content": {
-        "application/json": {
-          "example": {
-            "status": "no content",
-            "message": "No se encontraron usuarios",
-            "data": []
-          }
-        }
-      }
+      "description": "No se encontraron usuarios"
     }
   },
   "get_user": {
